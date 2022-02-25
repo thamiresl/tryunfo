@@ -90,7 +90,7 @@ class App extends React.Component {
      attr2: 0,
      attr3: 0,
      image: '',
-     rare: '',
+     rare: 'normal',
    }));
  }
 
