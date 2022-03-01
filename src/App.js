@@ -16,6 +16,7 @@ class App extends React.Component {
       trunfo: false,
       saveBtn: true,
       saveList: [],
+      hasTrunfo: false,
     };
   }
 
@@ -84,6 +85,7 @@ class App extends React.Component {
    };
    this.setState((saveState) => ({
      saveList: [...saveState.saveList, card],
+     hasTrunfo: [...saveState.saveList, card].some((cardIsTrunfo) => cardIsTrunfo.trunfo),
      name: '',
      description: '',
      attr1: 0,
@@ -91,6 +93,7 @@ class App extends React.Component {
      attr3: 0,
      image: '',
      rare: 'normal',
+     trunfo: false,
    }));
  }
 
@@ -104,6 +107,7 @@ class App extends React.Component {
      rare,
      trunfo,
      saveBtn,
+     hasTrunfo,
    } = this.state;
    return (
      <div>
@@ -116,6 +120,7 @@ class App extends React.Component {
          cardImage={ image }
          cardRare={ rare }
          cardTrunfo={ trunfo }
+         hasTrunfo={ hasTrunfo }
          onInputChange={ this.handleChange }
          isSaveButtonDisabled={ saveBtn }
          onSaveButtonClick={ this.save }
